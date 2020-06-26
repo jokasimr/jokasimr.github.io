@@ -8,6 +8,8 @@ const context = canvas.getContext('2d');
 const PEOPLE = [
   { name: 'johannes', url: '/persons/johannes.png' },
   { name: 'saranna', url: '/persons/saranna.jpg' },
+  { name: 'ellen', url: '/persons/ellen.jpg' },
+  { name: 'ellen', url: '/persons/ellen2.jpg' },
 ]
 
 let GLOBAL_FACE_MATCHER;
@@ -61,7 +63,7 @@ function boxMatching(fds) {
         if (!found) {
                 fd.animateName = true;
                 matchFace(fd);
-                faces.add(fd);
+                if (fd.match.label !== 'unknown') faces.add(fd);
         }
     });
     DATASTORE.faces = faces;
@@ -102,7 +104,6 @@ async function drawFaces() {
         context.lineWidth = 1.5; context.lineJoin = "round";
         context.strokeStyle = context.fillStyle = "pink";
         context.globalAlpha = 1;
-
 
         if (fd.animateName) {
             animateDrawText(name, box.topRight.x, box.topRight.y);
