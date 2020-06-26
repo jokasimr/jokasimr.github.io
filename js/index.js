@@ -91,8 +91,8 @@ let dashLen = 220, dashOffset = dashLen, speed = 60, i = 0;
 }
 
 
-async function drawFaces() {
-    context.clearRect(0, 0, 640, 480);
+function drawFaces() {
+    context.clearRect(0, 0, 480, 640);
     DATASTORE.faces.forEach(fd => {
         const box = fd.detection.box;
         const match = fd.match;
@@ -139,6 +139,6 @@ loadModels()
                 drawFaces();
         });
     },
-    1000)
+    4000)
   )
   .catch(err => console.log(err))
