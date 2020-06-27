@@ -1,6 +1,12 @@
 export function initVideo(video) {
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ "video": { facingMode: 'environment' }})
+      navigator.mediaDevices.getUserMedia({
+          "video": {
+                  facingMode: 'environment',
+                  width: 240,
+                  height: 380
+          },
+      })
         .then(function(stream) {
           //video.src = window.URL.createObjectURL(stream);
           video.srcObject = stream;

@@ -10,6 +10,7 @@ const PEOPLE = [
   { name: 'saranna', url: '/persons/saranna.jpg' },
   { name: 'ellen', url: '/persons/ellen.jpg' },
   { name: 'ellen', url: '/persons/ellen2.jpg' },
+  { name: 'Carl Henrik', url: '/persons/carlhenrik.jpg' },
 ]
 
 let GLOBAL_FACE_MATCHER;
