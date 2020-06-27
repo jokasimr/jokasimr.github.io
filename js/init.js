@@ -3,8 +3,8 @@ export function initVideo(video) {
       navigator.mediaDevices.getUserMedia({
           "video": {
                   facingMode: 'environment',
-                  width: 240,
-                  height: 380
+                  width: {ideal: 240},
+                  height: {ideal: 480}
           },
       })
         .then(function(stream) {

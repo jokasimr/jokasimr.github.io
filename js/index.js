@@ -12,6 +12,8 @@ const PEOPLE = [
   { name: 'ellen', url: '/persons/ellen.jpg' },
   { name: 'ellen', url: '/persons/ellen2.jpg' },
   { name: 'Carl Henrik', url: '/persons/carlhenrik.jpg' },
+  { name: 'Agnes', url: '/persons/agnes.jpg' },
+  { name: 'Jack', url: '/persons/jack.jpg' },
 ]
 
 let GLOBAL_FACE_MATCHER;
@@ -99,11 +101,11 @@ function drawFaces() {
         const box = fd.detection.box;
         const match = fd.match;
         const name = capitalize(match.label);
-        const px = 35;
+        const px = 18;
         context.font = `${px}px Georgia`;
         context.fillStyle = 'pink';
         //ctx.font = "50px Comic Sans MS, cursive, TSCu_Comic, sans-serif"; 
-        context.lineWidth = 1.2; context.lineJoin = "round";
+        context.lineWidth = 0.6; context.lineJoin = "round";
         context.strokeStyle = context.fillStyle = "pink";
         context.globalAlpha = 1;
 
