@@ -1,0 +1,18 @@
+input[type=range]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 20px;
+    height: 80%;
+    padding: 0 5px;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    margin-left: 50%;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}

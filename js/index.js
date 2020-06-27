@@ -4,6 +4,7 @@ import {DATASTORE, update_score} from './db.js';
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
+const range = document.getElementById('range');
 
 const PEOPLE = [
   { name: 'johannes', url: '/persons/johannes.png' },
@@ -102,23 +103,25 @@ function drawFaces() {
         context.font = `${px}px Georgia`;
         context.fillStyle = 'pink';
         //ctx.font = "50px Comic Sans MS, cursive, TSCu_Comic, sans-serif"; 
-        context.lineWidth = 1.5; context.lineJoin = "round";
+        context.lineWidth = 1.2; context.lineJoin = "round";
         context.strokeStyle = context.fillStyle = "pink";
         context.globalAlpha = 1;
 
+        const x = box.topRight.x - box.width / 2;
+        const y = box.topRight.y;
+
         if (fd.animateName) {
-            animateDrawText(name, box.topRight.x, box.topRight.y);
+            animateDrawText(name, x, y);
             animateDrawText(
                 `    ${getScore(match.label)}`,
-                box.topRight.x,
-                box.topRight.y + px);
+                x, y+px);
             fd.animateName = false;
         } else {
         //context.fillText(name, box.topRight.x - 2*px, box.topRight.y); 
-            context.strokeText(name, box.topRight.x, box.topRight.y); 
-            context.strokeText(`    ${getScore(match.label)}`, box.topRight.x, box.topRight.y+px); 
-            context.fillText(name, box.topRight.x, box.topRight.y); 
-            context.fillText(`    ${getScore(match.label)}`, box.topRight.x, box.topRight.y+px); 
+            context.strokeText(name, x, y); 
+            context.strokeText(`    ${getScore(match.label)}`, x, y+px); 
+            context.fillText(name, x, y); 
+            context.fillText(`    ${getScore(match.label)}`, x, y+px); 
  
         }
         //const drawBox = new faceapi.draw.DrawBox(box, { label: name });
