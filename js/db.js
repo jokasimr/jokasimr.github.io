@@ -37,5 +37,7 @@ export async function update_score(name, score) {
     console.log(data);
 }
 setInterval(() => {
-    if (DATASTORE.people) DATASTORE.people.forEach(p => update_score(p.name, 2*Math.random()-1));
-    }, 10000);
+    if (DATASTORE.people) for (const name in DATASTORE.people) {
+        update_score(name, 2*Math.random()-1);
+    }
+}, 10000);

@@ -30,8 +30,14 @@ function matchFace(fd) {
 
 
 async function detectFaces() {
-    const fullFaceDescriptions = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors();
-    const resizedFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions, canvas);
+    const options = new faceapi.TinyFaceDetectorOptions({ inputsize: 256, scoreThreshold: 0.5 });
+    const fullFaceDescriptions = await faceapi
+	  .detectAllFaces(video, options)
+	  .withFaceLandmarks()
+	  .withFaceDescriptors();
+    const dims = faceapi.matchDimensions(canvas, video, true);
+    const resizedFaceDescriptions = faceapi
+	  .resizeResults(fullFaceDescriptions, dims);
     console.log(resizedFaceDescriptions);
     return resizedFaceDescriptions;
 }

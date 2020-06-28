@@ -3,8 +3,6 @@ export function initVideo(video) {
       navigator.mediaDevices.getUserMedia({
           "video": {
                   facingMode: 'environment',
-                  width: {ideal: 240},
-                  height: {ideal: 480}
           },
       })
         .then(function(stream) {
@@ -17,6 +15,7 @@ export function initVideo(video) {
 
 const MODEL_URL = '/models'
 export async function loadModels() {
+    await faceapi.loadTinyFaceDetectorModel(MODEL_URL)
     await faceapi.loadSsdMobilenetv1Model(MODEL_URL)
     await faceapi.loadFaceLandmarkModel(MODEL_URL)
     await faceapi.loadFaceRecognitionModel(MODEL_URL)
